@@ -1,0 +1,58 @@
+{
+    "train_dataset_params": {
+        "dataset_name": "CARLA",
+        "dataset_path": "/drive/datasets/CARLA2CityScapes/images/train",
+        "sim_data_folder": "CARLA",
+        "real_data_folder": "CityScapesInput",
+        "stage": "train",
+        "loader_params": {
+            "batch_size": 1,
+            "shuffle": true,
+            "num_workers": 1,
+            "pin_memory": true
+        },
+        "input_size": [512, 512],
+        "downsample_size": [128, 128]
+    },
+    "val_dataset_params": {
+        "dataset_name": "CARLA",
+        "dataset_path": "/drive/datasets/CARLA2CityScapes/images/train",
+        "sim_data_folder": "CARLA",
+        "real_data_folder": "CityScapesInput",
+        "stage": "val",
+        "loader_params": {
+            "batch_size": 1,
+            "shuffle": false,
+            "num_workers": 1,
+            "pin_memory": true
+        },
+        "input_size": [512, 512],
+        "downsample_size": [128, 128]
+    },
+    "model_params": {
+        "model_name": "SRGAN",
+        "is_train": true,
+        "max_epochs": 50,
+        "warmup_epochs": 1,
+        "lr": 0.0001,
+        "momentum": 0.9,
+        "weight_decay": 1,
+        "input_size": 128,
+        "output_size": 512,
+        "export_path": "",
+        "checkpoint_path": "./checkpoints",
+        "load_checkpoint": -1,
+        "scheduler_epoch": -1,
+        "lr_policy": "step",
+        "lr_decay_iters": 10,
+        "epoch_list": [0, 43]
+    },
+    "visualization_params": {
+        "name": "AutoEncoder"
+    },
+    "visualization_params_validation": {
+        "name": "AutoEncoder"
+    },
+    "printout_freq": 25,
+    "model_update_freq": 1
+}
